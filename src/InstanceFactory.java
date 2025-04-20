@@ -28,15 +28,18 @@ public class InstanceFactory {
      */
     public static Instance fromUserInput(Scanner sc) {
         System.out.print("Number of attributes: ");
-        int n = sc.nextInt();
+        int n = Integer.parseInt(sc.nextLine()); // Read as String and parse, to avoid conflicts
+
         double[] attributes = new double[n];
         for (int i = 0; i < n; i++) {
             System.out.print("Attribute " + (i + 1) + ": ");
-            attributes[i] = sc.nextDouble();
+            attributes[i] = Double.parseDouble(sc.nextLine()); // Likewise, read the entire line and parse it.
         }
-        sc.nextLine();
+
         System.out.print("Label: ");
         String label = sc.nextLine();
+
         return new Instance(attributes, label);
     }
+
 }

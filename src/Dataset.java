@@ -16,7 +16,7 @@ public class Dataset {
     }
 
     /**
-     * Loads the dataset from a CSV file.
+     * Loads the dataset from a CSV file. Skips the header line.
      * @param filename the path to the CSV file
      * @throws IOException if the file cannot be read
      */
@@ -24,6 +24,10 @@ public class Dataset {
         instances.clear();
         try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
             String line;
+
+            // Skip the header line
+            line = reader.readLine(); // <- this line consumes the first line
+
             while ((line = reader.readLine()) != null) {
                 Instance instance = InstanceFactory.fromCSVLine(line);
                 instances.add(instance);
@@ -33,6 +37,7 @@ public class Dataset {
             numAttributes = instances.get(0).getAttributes().length;
         }
     }
+
 
     /**
      * Saves the dataset to a CSV file.
