@@ -4,8 +4,8 @@ import java.util.Arrays;
  * Represents a single data instance with numerical attributes and a label.
  */
 public class Instance {
-    private double[] attributes;
-    private String label;
+    private final double[] attributes;
+    private final String label;
 
     /**
      * Constructs an instance with attributes and a label.

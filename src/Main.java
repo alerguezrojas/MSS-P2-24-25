@@ -7,9 +7,8 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Dataset dataset = new Dataset();
-        Scanner sc = new Scanner(System.in);
 
-        try {
+        try (Scanner sc = new Scanner(System.in)) {
             System.out.print("Enter the path to the CSV file (e.g., data/iris.csv): ");
             String inputFile = sc.nextLine();
 
@@ -58,8 +57,6 @@ public class Main {
             System.err.println("I/O error: " + e.getMessage());
         } catch (Exception e) {
             System.err.println("Unexpected error: " + e.getMessage());
-        } finally {
-            sc.close();
         }
     }
 }

@@ -28,12 +28,19 @@ public class InstanceFactory {
      */
     public static Instance fromUserInput(Scanner sc) {
         System.out.print("Number of attributes: ");
-        int n = Integer.parseInt(sc.nextLine()); // Read as String and parse, to avoid conflicts
+        int n = Integer.parseInt(sc.nextLine()); // Read as String and parse, to avoid input buffer issues
 
         double[] attributes = new double[n];
         for (int i = 0; i < n; i++) {
-            System.out.print("Attribute " + (i + 1) + ": ");
-            attributes[i] = Double.parseDouble(sc.nextLine()); // Likewise, read the entire line and parse it.
+            while (true) {
+                try {
+                    System.out.print("Attribute " + (i + 1) + ": ");
+                    attributes[i] = Double.parseDouble(sc.nextLine());
+                    break;
+                } catch (NumberFormatException e) {
+                    System.out.println("Invalid number. Please try again.");
+                }
+            }
         }
 
         System.out.print("Label: ");
@@ -41,5 +48,6 @@ public class InstanceFactory {
 
         return new Instance(attributes, label);
     }
+
 
 }

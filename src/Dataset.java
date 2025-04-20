@@ -5,7 +5,7 @@ import java.util.*;
  * Represents a dataset containing multiple instances.
  */
 public class Dataset {
-    private List<Instance> instances;
+    private final List<Instance> instances;
     private int numAttributes;
 
     /**
