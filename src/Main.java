@@ -39,10 +39,24 @@ public class Main {
 
             System.out.println("\nDo you want to remove an instance? (y/n)");
             if (sc.nextLine().equalsIgnoreCase("y")) {
-                System.out.print("Index to remove: ");
+                int size = dataset.getInstances().size();
+                System.out.print("Index to remove [0 - " + (size - 1) + "]: ");
                 int idx = sc.nextInt();
                 sc.nextLine();
                 dataset.removeInstance(idx);
+                System.out.println("Instance removed.");
+            }
+
+            System.out.println("\nDo you want to update an instance? (y/n)");
+            if (sc.nextLine().equalsIgnoreCase("y")) {
+                int size = dataset.getInstances().size();
+                System.out.print("Index to update [0 - " + (size - 1) + "]: ");
+                int idx = sc.nextInt();
+                sc.nextLine(); // Clean buffer
+                Instance updated = InstanceFactory.fromUserInput(sc);
+                updated.normalize(minValues, maxValues);
+                dataset.updateInstance(idx, updated);
+                System.out.println("Instance updated and normalized.");
             }
 
             System.out.println("\nDo you want to save the dataset? (y/n)");
