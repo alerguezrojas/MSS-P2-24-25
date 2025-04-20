@@ -63,14 +63,19 @@ Dataset successfully loaded.
 
 Original dataset content:
 [5.1, 3.5, 1.4, 0.2] => Iris-setosa
+[4.9, 3.0, 1.4, 0.2] => Iris-setosa
+[4.7, 3.2, 1.3, 0.2] => Iris-setosa
 ...
 
 Normalized dataset content:
 [0.222222, 0.625000, 0.067797, 0.041667] => Iris-setosa
+[0.166667, 0.416667, 0.067797, 0.041667] => Iris-setosa
+[0.111111, 0.500000, 0.050847, 0.041667] => Iris-setosa
 ...
 
 Do you want to add a new instance? (y/n)
 y
+
 Number of attributes: 4
 Attribute 1: 6.3
 Attribute 2: 3.3
@@ -79,10 +84,30 @@ Attribute 4: 2.5
 Label: Iris-virginica
 Instance added and normalized successfully.
 
+Do you want to remove an instance? (y/n)
+y
+
+Index to remove [0 - 149]: 2
+Instance removed.
+
+Do you want to update an instance? (y/n)
+y
+
+Index to update [0 - 148]: 1
+Number of attributes: 4
+Attribute 1: 5.5
+Attribute 2: 3.7
+Attribute 3: 1.5
+Attribute 4: 0.3
+Label: Iris-setosa
+Instance updated and normalized.
+
 Do you want to save the dataset? (y/n)
 y
+
 Output filename (e.g., iris_out.csv): iris_out.csv
 Dataset saved successfully.
+
 ```
 
 ---
